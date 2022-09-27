@@ -120,7 +120,7 @@ void WordGame::Update() {
 	RecordScore();
 }
 
-// reveals a letter of the answer (Harf alayým)
+// reveals a letter of the answer (Harf alayï¿½m)
 // however by doing so, the player sacrifices 100 potential points
 void WordGame::GetLetter() {
 	unsigned short letter_index;
@@ -221,7 +221,7 @@ void WordGame::PrintOpeningScreen() {
 	std::cout << "         | |              | || |              | || |              | || |              | || |              | |" << std::endl;
 	std::cout << "         | '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |" << std::endl;
 	std::cout << "          '----------------'  '----------------'  '----------------'  '----------------'  '----------------' " << std::endl;
-	std::cout << "\n\n\n\nKelime Oyunu'na hoþ geldiniz!";
+	std::cout << "\n\n\n\nWelcome to Kelime Oyunu (Word Game)!";
 	std::cout << "\n\n\nKurallar:";
 	std::cout << "\n\n-> " << NO_OF_ANSWERS_FOR_EACH_NO_OF_LETTERS << "'er taneden ";
 	const unsigned short no_of_questions = NO_OF_ANSWERS_FOR_EACH_NO_OF_LETTERS * (MAX_NO_OF_LETTERS - MIN_NO_OF_LETTERS + 1);
@@ -230,22 +230,22 @@ void WordGame::PrintOpeningScreen() {
 		total_no_of_letters += i * NO_OF_ANSWERS_FOR_EACH_NO_OF_LETTERS;
 		std::cout << i << (i == MAX_NO_OF_LETTERS-1 ? " ve " : ", ");
 	}
-	std::cout << "\b\b harfli; toplam " << no_of_questions << " kelime ya da kelime grubunu verilen tanýmlara göre ";
+	std::cout << "\b\b harfli; toplam " << no_of_questions << " kelime ya da kelime grubunu verilen tanï¿½mlara gï¿½re ";
 	if(GAME_TIME_IN_SECONDS/60 > 0)
 		std::cout << GAME_TIME_IN_SECONDS/60 << " dakika ";
 	if(GAME_TIME_IN_SECONDS%60 > 0)
 		std::cout << GAME_TIME_IN_SECONDS%60 << " saniye ";
-	std::cout << "içerisinde bilmeye çalýþacaksýnýz.";
-	std::cout << "\n\n-> Bu " << no_of_questions << " kelimeden (" << total_no_of_letters << " harf) bildiðiniz her harf için " << POINTS_PER_LETTER << " puan kazanacaksýz.";
-	std::cout << "\n\n-> Yardým için '" << HARF_ALAYIM << "' tuþuna basarak harf alabilir ama aldýðýnýz harflerden puan alamazsýnýz, süreyi '";
-	std::cout << BENJAMIN << "' tuþuna (Benjamin) basarak durdurabilir ama durdurduktan sonra harf alamazsýnýz.";
-	std::cout << "\n\n-> Süreyi durdurduktan itibaren kelimeyi bilmeniz için";
+	std::cout << "iï¿½erisinde bilmeye ï¿½alï¿½ï¿½acaksï¿½nï¿½z.";
+	std::cout << "\n\n-> Bu " << no_of_questions << " kelimeden (" << total_no_of_letters << " harf) bildiï¿½iniz her harf iï¿½in " << POINTS_PER_LETTER << " puan kazanacaksï¿½z.";
+	std::cout << "\n\n-> Yardï¿½m iï¿½in '" << HARF_ALAYIM << "' tuï¿½una basarak harf alabilir ama aldï¿½ï¿½ï¿½nï¿½z harflerden puan alamazsï¿½nï¿½z, sï¿½reyi '";
+	std::cout << BENJAMIN << "' tuï¿½una (Benjamin) basarak durdurabilir ama durdurduktan sonra harf alamazsï¿½nï¿½z.";
+	std::cout << "\n\n-> Sï¿½reyi durdurduktan itibaren kelimeyi bilmeniz iï¿½in";
 	if(BENJAMIN_TIME_IN_SECONDS/60 > 0)
 		std::cout << " " << BENJAMIN_TIME_IN_SECONDS/60 << " dakika";
-	BENJAMIN_TIME_IN_SECONDS%60 > 0		?	std::cout << " " << BENJAMIN_TIME_IN_SECONDS%60 << " saniyeniz"	:	std::cout << "nýz";
-	std::cout << " olacak, bu süre içinde kelimeyi bilemezseniz bilemediðiniz her harf için " << POINTS_PER_LETTER << " puan kaybedeceksiniz.";
-	std::cout << "\n\n-> Oyunu istediðiniz zaman durdurmak için '" << PAUSE_KEY << "' tuþuna, çýkmak için de 'Escape' tuþuna basabilirsiniz.";
-	std::cout << "\n\n\nDilediðiniz herhangi bir tuþa basarak oyunu baþlatabilirsiniz.";
+	BENJAMIN_TIME_IN_SECONDS%60 > 0		?	std::cout << " " << BENJAMIN_TIME_IN_SECONDS%60 << " saniyeniz"	:	std::cout << "nï¿½z";
+	std::cout << " olacak, bu sï¿½re iï¿½inde kelimeyi bilemezseniz bilemediï¿½iniz her harf iï¿½in " << POINTS_PER_LETTER << " puan kaybedeceksiniz.";
+	std::cout << "\n\n-> Oyunu istediï¿½iniz zaman durdurmak iï¿½in '" << PAUSE_KEY << "' tuï¿½una, ï¿½ï¿½kmak iï¿½in de 'Escape' tuï¿½una basabilirsiniz.";
+	std::cout << "\n\n\nDilediï¿½iniz herhangi bir tuï¿½a basarak oyunu baï¿½latabilirsiniz.";
 	if(getch() == ESCAPE_KEY)
 		exit(0);
 	system("cls");
@@ -254,7 +254,7 @@ void WordGame::PrintOpeningScreen() {
 // prints a loading screen with a progress bar
 void WordGame::PrintLoadingScreen() {
 	MoveCursorToXY(40, 10);
-	std::cout << "Yükleniyor...";
+	std::cout << "Yï¿½kleniyor...";
 	MoveCursorToXY(34, 11);
 	for(unsigned short i=0;i<20;i++) {
 		Sleep(50);
@@ -281,7 +281,7 @@ void WordGame::PrintEndGameScreen() const {
 	system("cls");
 	MoveCursorToXY(40, 10);
 	std::cout << "Nihai skorunuz: " << score << std::endl;
-	std::cout << "\t\t\t\t\tArttýrdýðýnýz süre: " << current_time.GetMinutes() << " dakika " << short(current_time.GetSeconds()) << " saniye";
+	std::cout << "\t\t\t\t\tArttï¿½rdï¿½ï¿½ï¿½nï¿½z sï¿½re: " << current_time.GetMinutes() << " dakika " << short(current_time.GetSeconds()) << " saniye";
 	if(getch() == ESCAPE_KEY)
 		exit(0);
 	system("cls");
@@ -293,20 +293,20 @@ void WordGame::RecordScore() {
 	const std::string filename = "rekorlar.txt";
 	std::string player_name;
 	MoveCursorToXY(40, 10);
-	std::cout << "Ýsminizi giriniz: ";
+	std::cout << "ï¿½sminizi giriniz: ";
 	getline(std::cin, player_name);
 	std::ofstream myfile(filename, std::ios::app);
 	myfile << "Oyuncu ismi: " << player_name << std::string(35 - player_name.length(), ' ');
 	myfile << "Oyun tarihi: " << ctime(&mytime) << std::endl;
 	myfile << "Skor: " << score << std::string(42 - std::to_string(score).length(), ' ');
-	myfile << "Arttýrýlan süre: " << current_time.GetMinutes() << ":" << std::setfill('0') << std::setw(2) << short(current_time.GetSeconds()) << std::endl;
+	myfile << "Arttï¿½rï¿½lan sï¿½re: " << current_time.GetMinutes() << ":" << std::setfill('0') << std::setw(2) << short(current_time.GetSeconds()) << std::endl;
 	myfile << "__________________________________________________" << std::endl;
 	myfile.close();
 	system("cls");
 	MoveCursorToXY(32, 10);
-	std::cout << "Eski kayýtlarý görmek için '" << VIEW_RECORDS << "' tuþuna basabilirsiniz." << std::endl;
-	std::cout << "\t\t\t\tTekrar oynamak için '" << RESTART_KEY << "' tuþuna basabilirsiniz." << std::endl;
-	std::cout << "\t\t\t\tProgramdan çýkmak için ise dilediðiniz herhangi bir tuþa basabilirsiniz.";
+	std::cout << "Eski kayï¿½tlarï¿½ gï¿½rmek iï¿½in '" << VIEW_RECORDS << "' tuï¿½una basabilirsiniz." << std::endl;
+	std::cout << "\t\t\t\tTekrar oynamak iï¿½in '" << RESTART_KEY << "' tuï¿½una basabilirsiniz." << std::endl;
+	std::cout << "\t\t\t\tProgramdan ï¿½ï¿½kmak iï¿½in ise dilediï¿½iniz herhangi bir tuï¿½a basabilirsiniz.";
 	switch(toupper(getch())) {
 		case VIEW_RECORDS:
 			try {
@@ -400,13 +400,13 @@ bool WordGame::CompareAnswers(const std::string &guess) const {
 	std::string answer = current_word;
 	for(unsigned short i=0;i<answer.length();i++) {
 		switch(answer[i]) {
-			case 'Â':
+			case 'ï¿½':
 				answer[i] = 'A';
 				break;
-			case 'Î':
+			case 'ï¿½':
 				answer[i] = 'I';
 				break;
-			case 'Û':
+			case 'ï¿½':
 				answer[i] = 'U';
 		}
 		if(answer[i] != TR_toupper(guess[i]))
@@ -418,14 +418,14 @@ bool WordGame::CompareAnswers(const std::string &guess) const {
 // returns the given Turkish character in lowercase
 char WordGame::TR_toupper(const char &ch) {
 	if(ch>='a' && ch<='z')
-		return ch=='i' ? 'Ý' : ch-32;
+		return ch=='i' ? 'ï¿½' : ch-32;
 	switch(ch) {
-		case 'ç':	return 'Ç';
-		case 'ð':	return 'Ð';
-		case 'ý':	return 'I';
-		case 'ö':	return 'Ö';
-		case 'þ':	return 'Þ';
-		case 'ü':	return 'Ü';
+		case 'ï¿½':	return 'ï¿½';
+		case 'ï¿½':	return 'ï¿½';
+		case 'ï¿½':	return 'I';
+		case 'ï¿½':	return 'ï¿½';
+		case 'ï¿½':	return 'ï¿½';
+		case 'ï¿½':	return 'ï¿½';
 		default:	return ch;
 	}
 }
